@@ -121,6 +121,14 @@
                   <li class="dropdown-header">編集メニュー</li>
                   <li>
                     <a href="">編集</a>
+
+                  </li>
+                  <li class="dropdown-button">
+                    <form method="post" class="admin-users-reset-password">
+                      <input type="hidden" name="user_id" value="{{ sUser._id.toString() }}">
+                      <input type="hidden" name="_csrf" value="{{ csrf() }}">
+                      <button type="submit" class="btn btn-block btn-warning">パスワードの再発行</button>
+                    </form>
                   </li>
                   <li class="divider"></li>
                   <li class="dropdown-header">ステータス</li>
@@ -132,6 +140,7 @@
                   </form>
                   {% endif  %}
                   {% if sUser.status == 2 %}
+
                   <form action="/admin/user/{{ sUser._id.toString() }}/suspend" method="post">
                     <input type="hidden" name="_csrf" value="{{ csrf() }}">
                     <button type="submit" class="btn btn-block btn-warning">アカウント停止</button>

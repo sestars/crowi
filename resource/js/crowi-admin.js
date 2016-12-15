@@ -23,4 +23,18 @@ $(function() {
   });
 
   $('#createdUserModal').modal('show');
+
+  $('form.admin-users-reset-password').on('submit', function(e) {
+    $.post('/_api/admin/users.resetPassword', $(this).serialize(), function(res) {
+      if (res.ok) {
+        // TODO Fix
+        //location.reload();
+
+      }
+
+      console.log(res);
+    });
+
+    return false;
+  });
 });
